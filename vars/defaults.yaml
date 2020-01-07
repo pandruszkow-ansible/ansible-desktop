@@ -1,6 +1,5 @@
 ---
 
-slack_version: 3.2.1
-toolbox_version: 1.10.4088
-vb_version: 5.2
-dropbox_version: 2015.10.28
+example_var_1: foo
+example_var_2: bar
+example_var_3: faz

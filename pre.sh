@@ -4,6 +4,9 @@ echo
 read -p 'Your username: ' USERNAME
 read -p 'Your full name (for Git and account label): ' FULLNAME
 read -p 'Your email address (for Git only):' EMAIL_ADDRESS
+export USERNAME
+export FULLNAME
+export EMAIL_ADDRESS
 
 if id "$USERNAME" &>/dev/null; then
 	echo "User already exists, skipping account creation"
@@ -18,6 +21,3 @@ echo "Setting up Ansible from PPA"
 apt-add-repository ppa:ansible/ansible &>/dev/null
 apt update &>/dev/null
 apt install ansible
-
-echo "Running the main script"
-sh run.sh

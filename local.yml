@@ -3,23 +3,16 @@
   become: yes
   vars_files:
     - vars/defaults.yaml
+    - vars/software_versions.yaml
     - vars/packages.yaml
 
   #
-  # Request username, full name and mail
+  # Get username, full name and email from the environment variables
   #
-  vars_prompt:
-    - name: "user"
-      prompt: "Enter unix user:"
-      private: no
-
-    - name: "full_name"
-      prompt: "Enter your full name:"
-      private: no
-
-    - name: "email"
-      prompt: "Enter your email:"
-      private: no
+  vars:
+    - user: "{{ lookup('env', 'USERNAME') }}"
+    - full_name: "{{ lookup('env', 'FULLNAME') }}"
+    - email: "{{ lookup('env', 'EMAIL_ADDRESS') }}"
 
   tasks:
     #
